@@ -23,8 +23,12 @@ import numpy as np
 t0_data = np.random.rand(2, 2)
 t1_data = np.random.rand(2, 2)
 
-from zeptograd import Tensor, SGD
+# The forward graph:
+#
+# t0 -- Matmul -- mm -- Relu -- relu -- Sum -- loss
+# t1 ---'
 
+from zeptograd import Tensor, SGD
 t0 = Tensor(t0_data)
 t1 = Tensor(t1_data)
 mm = t0.matmul(t1)
